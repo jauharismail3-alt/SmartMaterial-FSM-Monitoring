@@ -82,3 +82,80 @@ Tombol **EMERGENCY RESET** digunakan untuk:
 ## 🧠 System Logic
 
 
+Kriteria POPCOUNT:
+- 0–1 sensor aktif → NORMAL
+- 2–3 sensor aktif → ALERT
+- 4–5 sensor aktif → CRITICAL
+- 6 sensor aktif → EMERGENCY
+
+---
+
+## 🖥️ User Interface
+
+- SCADA-style dark theme
+- Warna status sistem:
+  - 🟢 NORMAL
+  - 🟡 ALERT
+  - 🟠 CRITICAL
+  - 🔴 EMERGENCY
+- Fixed window layout (Windows Forms)
+
+---
+
+## 🛠️ Technologies Used
+
+- Language: **C#**
+- Framework: **.NET Windows Forms**
+- Concepts:
+  - Finite State Machine (FSM)
+  - Digital Logic (POPCOUNT)
+  - Event-driven Programming
+  - Industrial Instrumentation Simulation
+
+---
+
+## 📂 Project Structure
+
+SmartSCADA/
+│
+├── ScadaForm.cs
+├── Program.cs
+├── SmartSCADA.csproj
+└── README.md
+
+
+---
+
+## 🚀 How to Run
+
+1. Clone repository:
+git clone https://github.com/your-username/SmartSCADA.git
+
+2. Open project using **Visual Studio**
+3. Pastikan target framework mendukung **Windows Forms**
+4. Jalankan aplikasi:
+
+---
+
+## 📚 Academic Context
+
+Project ini dikembangkan sebagai simulasi sistem:
+- Sistem Digital
+- Instrumentasi Industri
+- SCADA & Automation
+- Smart Manufacturing System
+
+---
+
+## 👨‍🎓 Author
+
+**Mohammad Eka Jauhar Ismail**  
+Department of Instrumentation Engineering  
+Institut Teknologi Sepuluh Nopember (ITS)
+
+---
+
+## 📜 License
+
+This project is intended for **educational and academic purposes only**.
+
