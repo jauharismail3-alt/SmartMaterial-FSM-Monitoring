@@ -1,190 +1,84 @@
-🏭 Smart Manufacturing Monitoring System
-Windows Forms SCADA Simulation – C#
+# 🏭 Smart Manufacturing Monitoring System
+### Windows Forms SCADA Simulation – C#
 
-Department of Instrumentation Engineering
-Institut Teknologi Sepuluh Nopember (ITS), Surabaya
+**Department of Instrumentation Engineering**  
+**Institut Teknologi Sepuluh Nopember (ITS), Surabaya**
 
-📌 Overview
+---
 
-Smart Manufacturing Monitoring System adalah aplikasi SCADA (Supervisory Control and Data Acquisition) berbasis C# Windows Forms yang mensimulasikan pemantauan sensor dan aktuator pada sistem manufaktur cerdas.
+## 📌 Overview
 
-Aplikasi ini mengimplementasikan:
+Smart Manufacturing Monitoring System adalah aplikasi **SCADA (Supervisory Control and Data Acquisition)** berbasis **C# Windows Forms** yang mensimulasikan pemantauan sensor dan aktuator pada sistem manufaktur cerdas.
 
-Finite State Machine (FSM)
+Aplikasi ini mengimplementasikan **Finite State Machine (FSM)** dan **POPCOUNT logic** untuk menentukan kondisi sistem secara real-time, dilengkapi dengan visualisasi status aktuator serta monitoring sinyal berbasis ASCII waveform.
 
-POPCOUNT logic untuk evaluasi kondisi sistem
+---
 
-Visual monitoring sensor–aktuator secara real-time
+## 🎯 Features
 
-Signal visualization berbasis ASCII waveform
+### 🔹 Sensor Monitoring
+Terdapat 6 sensor industri yang disimulasikan:
+- Strain Gauge (Regangan)
+- Load Cell (Gaya Tekan)
+- Accelerometer (Getaran)
+- Temperature Sensor (Suhu)
+- Hall Effect Sensor (Medan Magnet)
+- LVDT (Pergeseran)
 
-Proyek ini dirancang untuk kebutuhan pembelajaran Sistem Digital, Instrumentasi, dan Smart Manufacturing.
+Input sensor dilakukan menggunakan checkbox sebagai representasi sinyal digital.
 
-🎯 Features
-🔹 Sensor Monitoring
+---
 
-6 jenis sensor industri:
+### 🔹 Finite State Machine (FSM)
 
-Strain Gauge
+Sistem menggunakan FSM 2-bit dengan definisi sebagai berikut:
 
-Load Cell
+| State | Binary | Description |
+|------|--------|------------|
+| NORMAL | 00 | Operasi sistem normal |
+| ALERT | 01 | Peringatan awal |
+| CRITICAL | 10 | Kondisi kritis |
+| EMERGENCY | 11 | Keadaan darurat |
 
-Accelerometer
+Penentuan state dilakukan berdasarkan **jumlah sensor aktif (POPCOUNT)**.
 
-Temperature Sensor
+---
 
-Hall Effect Sensor
+### 🔹 Actuator Control
 
-LVDT
+Sistem mengendalikan 6 aktuator industri:
+- Linear Actuator
+- Servo Motor
+- Voice Coil Actuator
+- Heater / Peltier
+- Electromagnet
+- Solenoid Actuator
 
-Input sensor menggunakan checkbox (simulasi digital)
+Status aktuator akan berubah secara otomatis mengikuti state sistem dan sensor yang aktif.
 
-🔹 FSM-Based System State
+---
 
-Sistem menggunakan 2-bit FSM:
+### 🔹 Signal Visualization
 
-State	Binary	Description
-NORMAL	00	Operasi stabil
-ALERT	01	Peringatan awal
-CRITICAL	10	Kondisi kritis
-EMERGENCY	11	Keadaan darurat
+- Visualisasi sinyal real-time menggunakan **ASCII waveform**
+- Pola sinyal berubah sesuai kondisi sistem:
+  - Amplitudo rendah → NORMAL
+  - Amplitudo tinggi → EMERGENCY
+- Update setiap **500 ms**
 
-Penentuan state berdasarkan jumlah sensor aktif (POPCOUNT).
+---
 
-🔹 Actuator Control Logic
+### 🔹 Emergency Reset
 
-6 aktuator industri:
+Tombol **EMERGENCY RESET** digunakan untuk:
+- Menonaktifkan seluruh sensor
+- Mengembalikan sistem ke:
+  - POPCOUNT = 0
+  - STATE = NORMAL (00)
+- Dilengkapi konfirmasi dan notifikasi sistem
 
-Linear Actuator
+---
 
-Servo Motor
+## 🧠 System Logic
 
-Voice Coil
 
-Heater / Peltier
-
-Electromagnet
-
-Solenoid
-
-Status aktuator berubah otomatis berdasarkan:
-
-FSM state
-
-Sensor yang aktif
-
-🔹 Signal Visualization
-
-Real-time signal monitoring menggunakan ASCII waveform
-
-Pola sinyal berubah sesuai kondisi sistem:
-
-Low noise → NORMAL
-
-High amplitude → EMERGENCY
-
-Update setiap 500 ms
-
-🔹 Emergency Reset
-
-Tombol EMERGENCY RESET
-
-Mengembalikan sistem ke:
-
-POPCOUNT = 0
-
-STATE = NORMAL (00)
-
-Dilengkapi dialog konfirmasi dan notifikasi
-
-🧠 System Logic Summary
-Sensor Inputs → POPCOUNT → FSM State → Actuator Response → Signal Pattern
-
-
-FSM Transition:
-
-0–1 sensor → NORMAL
-
-2–3 sensor → ALERT
-
-4–5 sensor → CRITICAL
-
-6 sensor → EMERGENCY
-
-🖥️ User Interface
-
-Modern SCADA-style dark theme
-
-Color-coded states:
-
-🟢 Green → NORMAL
-
-🟡 Yellow → ALERT
-
-🟠 Orange → CRITICAL
-
-🔴 Red → EMERGENCY
-
-Responsive layout (Fixed window)
-
-🛠️ Technologies Used
-
-Language: C#
-
-Framework: .NET Windows Forms
-
-Concepts:
-
-Finite State Machine (FSM)
-
-Digital Logic (POPCOUNT)
-
-Event-driven programming
-
-Industrial instrumentation simulation
-
-📂 Project Structure
-SmartSCADA/
-│
-├── ScadaForm.cs        # Main SCADA UI & logic
-├── Program.cs         # Application entry point
-├── SmartSCADA.csproj  # Project configuration
-└── README.md          # Project documentation
-
-🚀 How to Run
-
-Clone repository:
-
-git clone https://github.com/your-username/SmartSCADA.git
-
-
-Open project using Visual Studio
-
-Ensure target framework supports Windows Forms
-
-Run:
-
-Ctrl + F5
-
-📚 Academic Context
-
-Project ini relevan untuk mata kuliah:
-
-Sistem Digital
-
-Instrumentasi Industri
-
-SCADA & Automation
-
-Smart Manufacturing Systems
-
-👨‍🎓 Author
-
-Mohammad Eka Jauhar Ismail
-Department of Instrumentation Engineering
-Institut Teknologi Sepuluh Nopember (ITS) – Surabaya
-
-📜 License
-
-This project is intended for educational and academic use.
-Feel free to modify and extend for learning purposes.
