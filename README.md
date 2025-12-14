@@ -129,7 +129,7 @@ SmartSCADA/
 ## 🚀 How to Run
 
 1. Clone repository:
-git clone https://github.com/your-username/SmartSCADA.git
+git clone https://github.com/jauharismail3-alt/SmartMaterial-FSM-Monitoring
 
 2. Open project using **Visual Studio**
 3. Pastikan target framework mendukung **Windows Forms**
